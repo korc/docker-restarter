@@ -2,7 +2,7 @@ name: dockerhub
 
 on:
   push:
-    branches: [ master, devel ]
+    branches: [ main, devel ]
 
 jobs:
   docker:
@@ -23,7 +23,7 @@ jobs:
       -
         name: Build and push master
         uses: docker/build-push-action@v4
-        if: ${{ github.ref_name == 'master' }}
+        if: ${{ github.ref_name == 'main' }}
         with:
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/docker-restarter:latest
